@@ -1,188 +1,80 @@
-<!--
-Hey there! Thanks for checking out DevFlow. This README follows standard open-source conventions — badges up top, quick start right after, docs at the bottom. Let me know if anything is unclear.
--->
-
-<h1 align="center">DevFlow</h1>
 <p align="center">
-  <em>A dual-pipeline multi-agent workflow framework.</em>
-  <br>
-  PM + 6 agents + 5 gates = code that doesn't silently break.
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.0-blue" alt="version">
+  <img src="https://img.shields.io/badge/version-1.0-blue" alt="version">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="license">
   <img src="https://img.shields.io/badge/agentskills.io-compatible-purple" alt="agentskills.io">
   <img src="https://img.shields.io/badge/Claude%20Code-ready-orange" alt="Claude Code">
 </p>
 
+<h1 align="center">DevFlow</h1>
+<p align="center">
+  <em>双 Pipeline 多 Agent 协作框架。</em>
+  <br>
+  PM + 6 个 Agent + 5 道关口 = 不会悄无声息挂掉的代码。
+</p>
+
 ---
 
-## What is DevFlow?
+[English](README_en.md) | 中文
 
-DevFlow is a **reusable agent skill** that turns Claude Code into a project manager.
+## 这是什么
 
-When you say "多 agent", instead of blindly dispatching subagents, the PM Agent follows a structured workflow:
-
-```
-Leader (you) says "build X"
-  → PM Agent aligns scope
-    → Part 1: Architect designs → Developer builds → 3 Reviewers audit
-    → Part 2: Security Lead → QA tests → RE fixes (≤3 rounds)
-      → CLEAN or loop back
-```
-
-It was born from a real project — [unblind](https://github.com/Santazuki/unblind) — where a junior CS student accidentally built a reusable development methodology while trying to ship a vision skill.
-
-## The Problem
-
-Giving Claude Code the `Agent` tool is like handing someone a fleet of workers with no foreman.
-
-What happens without DevFlow:
-- **PM does the work themselves** — "It's faster if I just review the code" → blind spot
-- **Parallel dispatch causes merge conflicts** — two developers edit the same file
-- **Reviewers read the same thing** — 3 people audit all files, miss different things
-- **No rollback mechanism** — a reviewer finds a critical bug? Now what?
-
-## How DevFlow Solves It
-
-### 1. Hard Constraints on PM
-
-The PM is **forbidden** from doing these roles themselves. Must dispatch independent agents:
-
-| Role | Trigger Point | Why Independent |
-|------|:---:|---|
-| Security Lead | Design review + Final audit | PM reviewing their own design = blind spot |
-| Reviewer ×3 | Code review | Different eyes on different dimensions |
-| QA Engineer | Full test suite | Testing and fixing can't be the same person |
-| Reliability Engineer | Fix failures | Same reason |
-
-### 2. Serial vs Parallel Decision Tree
-
-Two questions determine everything:
+DevFlow 是一个可复用的 **Agent Skill**。把 Claude Code 变成一个项目经理——当你说"多 agent"，它不会盲目派发 Subagent，而是按一套验证过的流程推进：
 
 ```
-Q1: Does B's output depend on A's code?  → Serial (A first)
-Q2: Do A and B modify the SAME file?     → Serial (no parallel edits)
-Neither?                                   → Parallel!
+Leader 提需求
+  → PM 对齐范围
+    → Part 1: Architect 设计 → Developer 实现 → 3×Reviewer 审查
+    → Part 2: Security Lead → QA 测试 → RE 修复（≤3 轮）
+      → CLEAN 或回退
 ```
 
-Read-only agents (Reviewer, SL) are **always parallel** — they don't write files.
+这套方法从 [unblind](https://github.com/Santazuki/unblind) 开发中长出来。三个版本的迭代，被现实逼出来的规则。
 
-### 3. Reviewer Dimension Splitting
+## 解决什么问题
 
-3 reviewers, 3 dimensions, zero overlap:
+给 Claude Code 开了 Agent 工具，就像发了一队工人却没有工头。
 
-| Reviewer | Dimension | What they check |
-|----------|-----------|-----------------|
-| #1 | Security | Hardcoded keys, injection, error message leaks |
-| #2 | Code Quality | Interface consistency, DRY, backward compat |
-| #3 | Integration | Data consistency, call chain, end-to-end flow |
+| 没 DevFlow | 有 DevFlow |
+|------|------|
+| PM 替 Agent 干活——关口形同虚设 | PM 硬约束：4 个角色禁止亲自做 |
+| 两个 Dev 改同一个文件——合并冲突 | 派发前检查文件交集，有冲突就串行 |
+| 三个 Reviewer 审同一批代码——都审不深 | 安全/质量/集成三维分工，不交叉 |
+| 审查发现严重 bug——不知道接下来该干嘛 | CRITICAL 阻断 Part 2 → 回退 → 同一 Reviewer 复审查 |
 
-### 4. 5 Quality Gates
+## 核心规则
 
-| Gate | Condition | On Failure |
-|------|-----------|------------|
-| G1 | Architect outputs design doc | Wait for Architect |
-| G2 | Independent SL agent reviews design | Send back to Architect |
-| G3 | Reviewers find NO CRITICAL issues | Block Part 2 → Developer fixes → Same reviewer re-checks |
-| G4 | Independent QA agent: all tests pass | Send to RE (≤3 rounds) |
-| G5 | After 3 rounds: SL final verdict | Notify Leader |
+**PM 硬约束**：SL、Reviewer、QA、RE 四个角色 PM 禁止亲自做。每关走完自问："独立 Agent 做的还是我自己做的？"
 
-### 5. Post-Refactor Scan
+**串行 vs 并行**：两问决策——B 依赖 A 的产出？改同一文件？都不是就并行。只读 Agent 永远可并行。
 
-After every major refactor: grep old class names, old file names, old test counts, old version numbers. Fix every stale reference in README, SKILL, CLAUDE, package.json, and memory files. One missed reference = future AI working off wrong assumptions.
+**Reviewer 三维分工**：#1 安全（Key 泄露/注入）· #2 代码质量（接口/DRY/兼容）· #3 集成（数据一致性/调用链）
 
-## Quick Start
+**5 道关口**：G1 设计出 → G2 SL 审设计 → G3 Reviewer 无 CRITICAL → G4 QA 全绿 → G5 SL 最终判
 
-### Install
+## 快速开始
 
 ```bash
-# Clone into your project's skills directory
 git clone https://github.com/Santazuki/devflow.git .claude/skills/devflow
-
-# Or install globally
-git clone https://github.com/Santazuki/devflow.git ~/.claude/skills/devflow
 ```
 
-### Use
+在 Claude Code 中说：`"多agent开发这个功能"`、`"派发计划"`、`"哪些可以并行"`
 
-In Claude Code, just say one of these:
-
-```
-"多agent开发这个功能"
-"用 devflow"
-"哪些任务可以并行?"
-"派发计划"
-```
-
-The PM Agent will pick up the skill, align with you on scope, and start the pipeline.
-
-### Integrate with your CLAUDE.md
-
-Copy the template segment into your project's CLAUDE.md:
+集成到项目 CLAUDE.md：
 
 ```bash
 cat resources/claude-md-template.md >> CLAUDE.md
 ```
 
-Then customize: adjust role names, model preferences, and tool permissions for your project.
+## 实战验证
 
-## Project Structure
+在 unblind Provider v3.0 重构中跑过——9 个文件改动，3 个 Developer 并行，1 轮 QA 过：
 
-```
-devflow/
-├── SKILL.md                          # The skill (agentskills.io format)
-├── README.md                         # You're reading it
-├── LICENSE                           # MIT
-├── resources/
-│   └── claude-md-template.md         # Copy-paste into your CLAUDE.md
-└── docs/
-    └── methodology.md                # Full backstory, v0→v3 evolution, unblind case study
-```
-
-## When to Use
-
-✅ **Use DevFlow when:**
-- Building a feature spanning 3+ files
-- Doing a significant refactor
-- Working on security-sensitive code (API keys, auth, user input)
-- Collaborating with multiple agent invocations
-
-❌ **Skip DevFlow when:**
-- Fixing a typo or single-line bug
-- Updating documentation only
-- Changing a config value
-- Working solo on a < 50 line prototype
-
-## Real-World Usage
-
-DevFlow was used to build unblind's Provider v3.0 refactor:
-
-| Metric | Before | After |
-|--------|:---:|:---:|
-| Modules | 16 | 15 |
-| Tests | 95 | 171 |
-| Provider code | ~347 lines (3 subclasses) | ~290 lines (1 class + pure functions) |
-| Adding a provider | Write a build function | Add 1 line of data |
-| Review issues caught | — | 1 CRITICAL + 6 HIGH before hitting production |
-
-Full case study: [`docs/methodology.md`](docs/methodology.md)
-
-## Documentation
-
-| Document | What's in it |
-|----------|-------------|
-| [`SKILL.md`](SKILL.md) | The skill itself — role definitions, gates, dispatch rules |
-| [`docs/methodology.md`](docs/methodology.md) | The full story — why it exists, how it evolved (v0→v3), unblind case study |
-| [`resources/claude-md-template.md`](resources/claude-md-template.md) | Drop-in CLAUDE.md segment for your project |
+| 指标 | 前 | 后 |
+|------|:---:|:---:|
+| 测试 | 95 | 171 |
+| Provider 代码 | ~347 行 (3 子类) | ~290 行 (1 类 + 纯函数) |
+| 审查捕获 | — | 1 CRITICAL + 6 HIGH |
 
 ## License
 
 MIT © 2026 Santaz
-
----
-
-<p align="center">
-  <sub>Built with Claude Code. Designed by accident. Refined through iteration.</sub>
-</p>
