@@ -75,6 +75,23 @@ Ran through unblind's Provider v3.0 refactor — 9 files, 3 developers parallel,
 | Provider code | ~347 LOC (3 subclasses) | ~290 LOC (1 class + pure functions) |
 | Issues caught | — | 1 CRITICAL + 6 HIGH |
 
+## Contributing
+
+Issues and PRs welcome.
+
+### Development Setup
+
+```bash
+git clone https://github.com/Santazuki/devflow.git
+# Pure Markdown + YAML, no compilation, no dependencies
+```
+
+### Verify
+
+```bash
+node -e "const fm = require('fs').readFileSync('SKILL.md','utf8').match(/^---\n([\s\S]*?)\n---/); console.log(fm ? '✅ valid frontmatter' : '❌ missing')"
+```
+
 ## License
 
 MIT © 2026 Santaz

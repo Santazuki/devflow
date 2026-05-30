@@ -75,6 +75,24 @@ cat resources/claude-md-template.md >> CLAUDE.md
 | Provider 代码 | ~347 行 (3 子类) | ~290 行 (1 类 + 纯函数) |
 | 审查捕获 | — | 1 CRITICAL + 6 HIGH |
 
+## 参与贡献
+
+欢迎提 Issue 和 PR。
+
+### 开发环境
+
+```bash
+git clone https://github.com/Santazuki/devflow.git
+# 纯 Markdown + YAML，无编译，无依赖
+```
+
+### 验证
+
+```bash
+# 检查 SKILL.md 格式
+node -e "const fm = require('fs').readFileSync('SKILL.md','utf8').match(/^---\n([\s\S]*?)\n---/); console.log(fm ? '✅ valid frontmatter' : '❌ missing')"
+```
+
 ## License
 
 MIT © 2026 Santaz
