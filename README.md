@@ -1,4 +1,11 @@
 <h1 align="center">DevFlow</h1>
+<p align="center"><em>双 Pipeline 多 Agent 协作框架</em></p>
+<p align="center">
+  PM + 6 个 Agent + 5 道关口 = 不会悄无声息挂掉的代码
+</p>
+<p align="center">
+  <a href="README_en.md">English</a> | 中文
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.0-blue" alt="version">
@@ -6,15 +13,8 @@
   <img src="https://img.shields.io/badge/agentskills.io-compatible-purple" alt="agentskills.io">
   <img src="https://img.shields.io/badge/Claude%20Code-ready-orange" alt="Claude Code">
 </p>
-<p align="center">
-  <em>双 Pipeline 多 Agent 协作框架。</em>
-  <br>
-  PM + 6 个 Agent + 5 道关口 = 不会悄无声息挂掉的代码。
-</p>
 
 ---
-
-[English](README_en.md) | 中文
 
 ## 这是什么
 

@@ -1,4 +1,11 @@
 <h1 align="center">DevFlow</h1>
+<p align="center"><em>A dual-pipeline multi-agent workflow framework</em></p>
+<p align="center">
+  PM + 6 agents + 5 gates = code that doesn't silently break
+</p>
+<p align="center">
+  <a href="README.md">中文</a> | English
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.0-blue" alt="version">
@@ -6,15 +13,8 @@
   <img src="https://img.shields.io/badge/agentskills.io-compatible-purple" alt="agentskills.io">
   <img src="https://img.shields.io/badge/Claude%20Code-ready-orange" alt="Claude Code">
 </p>
-<p align="center">
-  <em>A dual-pipeline multi-agent workflow framework.</em>
-  <br>
-  PM + 6 agents + 5 gates = code that doesn't silently break.
-</p>
 
 ---
-
-[中文](README.md) | English
 
 ## What is DevFlow?
 
