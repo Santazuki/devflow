@@ -53,6 +53,12 @@ Leader 提需求
 
 ## 快速开始
 
+把下面这句话发给 Claude Code：
+
+> 帮我安装 devflow skill，GitHub 仓库是 https://github.com/Santazuki/devflow，clone 到 .claude/skills/devflow 即可。
+
+或手动：
+
 ```bash
 git clone https://github.com/Santazuki/devflow.git .claude/skills/devflow
 ```

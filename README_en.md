@@ -53,6 +53,12 @@ Giving Claude Code the Agent tool is like handing someone a fleet of workers wit
 
 ## Quick Start
 
+Send this to Claude Code:
+
+> Install the devflow skill from https://github.com/Santazuki/devflow — clone it to .claude/skills/devflow.
+
+Or manually:
+
 ```bash
 git clone https://github.com/Santazuki/devflow.git .claude/skills/devflow
 ```

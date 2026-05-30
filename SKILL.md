@@ -52,6 +52,17 @@ scenarios:
 
 ## 启动流程
 
+### Step -1: 加载项目模板
+
+在首次使用时，检查当前项目的 CLAUDE.md 是否已包含多 Agent 协作段：
+
+1. 读取 `resources/claude-md-template.md`
+2. 检查当前项目的 CLAUDE.md 是否已有 `## 多 Agent 协作` 或 `PM 硬约束` 章节
+3. 若没有 → 将模板追加到项目 CLAUDE.md：`cat resources/claude-md-template.md >> CLAUDE.md`
+4. 若有但内容过时 → 对比差异，提示 Leader 更新
+
+模板包含角色定义、关口、硬约束、调度规则——是本 SKILL 在项目中的持久化配置。
+
 ### Step 0: 对齐需求
 
 在派发任何 Agent 之前，与 Leader 确认：
@@ -172,5 +183,5 @@ PM 不得亲自做，自己审自己是盲区。
 
 ## 资源
 
-- `resources/claude-md-template.md` — 可复制到项目的 CLAUDE.md 多 Agent 段
+- `resources/claude-md-template.md` — CLAUDE.md 模板段。Step -1 自动检测并集成到当前项目
 - `docs/methodology.md` — 完整方法论（背景、v0→v3 演进、unblind 案例）
