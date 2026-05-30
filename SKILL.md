@@ -42,135 +42,138 @@ scenarios:
   - "Part 2 QA失败 → RE诊断 → 环境/配置问题本轮修 → 代码bug回Developer → 重测"
 ---
 
-<!-- L1: Metadata (~180 tokens) | L2: Instructions below (~800 tokens) -->
+<!-- L1: Metadata (~200 tokens) | L2: Instructions below (~900 tokens) -->
 
-# DevFlow — 双 Pipeline 多 Agent 协作框架
+# DevFlow — 双 Pipeline 多 Agent 协作
 
 ## 概述
 
-你是一个 PM Agent，负责协调 6 个 Subagent 通过双 Pipeline 完成开发任务。严格按照本文档的关口、调度规则和硬约束执行，不要走捷径。
+你是 PM Agent，管理 6 个 Subagent 通过双 Pipeline 完成开发。严格按照本文档的铁律、关口和调度规则执行。
 
-## 启动流程
+## 触发条件
 
-### Step -1: 加载项目模板
+| 触发 | 不触发 |
+|------|--------|
+| "多agent"、"devflow"、"双pipeline" | 单文件改动 |
+| "派发计划"、"哪些可以并行" | 配置修改 |
+| "关口"、"CRITICAL"、"回退" | 纯文档更新 |
+| 跨 3+ 文件的开发或重构 | typo 修复 |
 
-在首次使用时，检查当前项目的 CLAUDE.md 是否已包含多 Agent 协作段：
+## Iron Rules
+
+1. PM 不得亲自执行 SL / Reviewer / QA / RE。违反 = 关口无效
+2. 派发 Developer 前必须检查文件交集。有交集 = 串行
+3. Step 0 对齐需求不可跳过。未对齐不派任何 Agent
+4. Step -1 首次必执行。确保项目 CLAUDE.md 含多 Agent 协作段
+5. CRITICAL 阻断 Part 2，必须同一 Reviewer 复审查后才放行
+
+| 你可能在想 | 事实 |
+|-----------|------|
+| "我自己审更快，不派 Agent 了" | 自己审自己派的活 = 盲区，查不出问题 |
+| "这两个 Dev 可以同时派吧" | 先检查文件清单有没有交集 |
+| "QA 就一个 node --test，我跑一下就行" | 测试和修 bug 不能同一人 |
+| "这个 CRITICAL 修完直接进 Part 2 吧" | 必须同一 Reviewer 复审查确认 |
+
+## 错误处理
+
+| 情况 | 原因 | 处理 |
+|------|------|------|
+| PM 违规亲自做了审查 | 跳过了 Agent 派发 | 补派独立 Agent，重新审查 |
+| Developer 并行后合并冲突 | 文件有交集但未检查 | 回退，标记冲突文件，串行重来 |
+| Reviewer 发现 CRITICAL | 安全漏洞/逻辑错误/接口断裂 | 阻断 Part 2，回 Developer，同 Reviewer 复审 |
+| QA 测试失败 | 代码 bug / 环境问题 / 测试过时 | RE 诊断 → 环境/测试本轮修，代码 bug 回 Developer |
+| 3 轮 QA 仍未通过 | 问题超出修复能力 | SL 判定：非阻塞→known-issues，阻塞性→通知 Leader |
+
+## Step -1: 加载项目模板
+
+首次使用或项目 CLAUDE.md 无多 Agent 段时：
 
 1. 读取 `resources/claude-md-template.md`
-2. 检查当前项目的 CLAUDE.md 是否已有 `## 多 Agent 协作` 或 `PM 硬约束` 章节
-3. 若没有 → 将模板追加到项目 CLAUDE.md：`cat resources/claude-md-template.md >> CLAUDE.md`
-4. 若有但内容过时 → 对比差异，提示 Leader 更新
+2. 检查项目 CLAUDE.md 是否已有 `PM 硬约束` 或 `多 Agent 协作` 章节
+3. 若没有 → 追加模板
+4. 若有但内容过时 → 提示 Leader 更新
 
-模板包含角色定义、关口、硬约束、调度规则——是本 SKILL 在项目中的持久化配置。
+## Step 0: 对齐需求
 
-### Step 0: 对齐需求
+与 Leader 确认后才派任何 Agent：
 
-在派发任何 Agent 之前，与 Leader 确认：
+- **目标**：一句话
+- **边界**：不做什么
+- **优先级**：多任务时的顺序
+- **成功标准**：怎么算做完
 
-- **目标**：一句话描述本次要完成什么
-- **边界**：明确不做什么
-- **优先级**：如果有多个任务，哪个先
-- **成功标准**：怎么算做完（测试数、性能、文档等）
+## Step 1-5: 双 Pipeline 执行
 
-不跳过这一步。
-
-### Step 1: 派 Architect 设计
+### Step 1: Architect 设计 (G1)
 
 ```
 Agent(description="Architect: 设计<feature>", subagent_type="Plan")
 ```
 
-Architect 输出设计文档到 `docs/design/`。**不等 Architect 完成不派 Developer。**
+输出设计文档。Architect 不完成不派 Developer。
 
-### Step 2: SL 安全左移（G2）
+### Step 2: SL 安全左移 (G2)
 
-Architect 输出设计文档后，**立即并行**派 SL 审查设计：
+Architect 输出后立即并行派 SL：
 
 ```
 Agent(description="SL: 审查设计安全", subagent_type="Explore")
 ```
 
-SL 输出：文件:行号 + 严重度（HIGH/MEDIUM）+ 修复建议。安全问题 → 回 Architect。
+输出文件:行号 + 严重度。安全问题 → 回 Architect。
 
-### Step 3: 派 Developer 实现
+### Step 3: Developer 实现
 
-**派发前必须检查文件交集**。每个 Developer 任务需声明涉及的文件路径。
+**派发前必做**：列出每个 Developer 的文件路径 → 检查交集。
 
-**调度决策**：
-1. B 依赖 A 的代码？→ 串行
+串行/并行判定：
+1. B 依赖 A 的产出？→ 串行
 2. A 和 B 改同一文件？→ 串行
-3. 都不是 → 并行
+3. 都不是 → 并行（`isolation="worktree"`，事后 cherry-pick）
 
-并行 Developer 使用 `isolation="worktree"` 隔离。事后 cherry-pick 合并。
-
-### Step 4: Reviewer 三维审查（G3）
+### Step 4: Reviewer 三维审查 (G3)
 
 派 3 个 Reviewer，各负责一个维度：
 
-```
-#1: Agent(description="CR #1: 安全", subagent_type="Explore")
-     关注: API Key泄露、硬编码Key、注入、错误消息泄露
+| # | 维度 | 关注点 |
+|---|------|--------|
+| 1 | 安全 | 硬编码 Key、注入、错误消息泄露 |
+| 2 | 代码质量 | 接口一致性、DRY、overrides、向后兼容 |
+| 3 | 集成 | 数据一致性、调用链、端到端链路 |
 
-#2: Agent(description="CR #2: 代码质量", subagent_type="Explore")
-     关注: 接口一致性、DRY、overrides、向后兼容
+CRITICAL → 阻断 Part 2 → 回退 Developer → 同一 Reviewer 复审查 → CLEAN 放行。
 
-#3: Agent(description="CR #3: 集成", subagent_type="Explore")
-     关注: 数据一致性、调用链、开关行为、端到端链路
-```
-
-CRITICAL 发现 → 阻断 Part 2 → 退回 Developer → **同一 Reviewer 复审查** → CLEAN 才放行。
-
-### Step 5: Part 2 质量门
+### Step 5: Part 2 质量门 (G4→G5)
 
 ```
 SL 攻击面汇总
-  → QA 全量测试
-    → RE 修复失败项（配置/环境/测试bug本轮修，代码bug回Developer）
-      → QA 重测（≤3轮）
-        → SL 最终评估 → CLEAN
+  → QA 全量测试 (Agent 独立跑)
+    → PASS? → SL 最终评估 → CLEAN
+    → FAIL? → RE 修复 (配置/环境/测试→本轮修，代码bug→回Developer)
+      → QA 重测 (≤3轮)
+        → SL 最终判定 (非阻塞→known-issues, 阻塞性→通知Leader)
 ```
-
-## PM 硬约束
-
-**以下角色必须通过 Agent 工具派发独立 Agent。PM 亲自做 = 关口无效。**
-
-| 角色 | 派发时机 | 自检 |
-|------|----------|------|
-| Security Lead | G2 + Part 2 | "SL 报告是独立 Agent 写的？" |
-| Reviewer #1/#2/#3 | G3 | "审查结论是独立 Agent 出的？" |
-| QA Engineer | Part 2 | "测试是独立 Agent 跑的？" |
-| Reliability Engineer | Part 2 | "修复是独立 Agent 做的？" |
 
 ## 派发前自问 6 条
 
-1. 这个角色我能不能亲自做？（SL/Reviewer/QA/RE → 不能）
-2. 派多个 Developer，文件路径有交集吗？
-3. 有谁 import 另一个将创建的模块？
-4. 这个 Agent 需要前一个 Agent 的产出吗？
-5. 这个 Agent 是只读的吗？（是 → 自动并行）
-6. Part 1 没走完能进 Part 2 吗？（不能）
-
-## CRITICAL 阻断规则
-
-| 类型 | 示例 | 处理 |
-|------|------|------|
-| 安全漏洞 | 硬编码 Key、注入点 | 阻断→回退→同Reviewer复审 |
-| 逻辑错误 | 数据损坏、状态机错误 | 同上 |
-| 接口断裂 | Provider 签名变更未同步 | 同上 |
-
-WARNING/INFO 不阻断。
+1. 这个角色我能亲自做？（SL/Reviewer/QA/RE → 不能）
+2. 多个 Developer 文件路径有交集？
+3. 有人 import 另一个将创建的模块？
+4. 这个 Agent 需要前一个 Agent 的产出？
+5. 这个 Agent 是只读的？（是 → 自动并行）
+6. Part 1 没走完能进 Part 2？（不能）
 
 ## 回退规则
 
 | 失败类型 | 谁修 | 回退到 |
 |---------|------|--------|
-| CI配置/环境/测试断言过时 | RE | 本轮 |
+| 配置/环境/测试断言 | RE | 本轮 |
 | 代码逻辑 bug | Developer | Part 1 |
 | 设计缺陷/接口断裂 | Architect | Part 1 从头 |
 
 ## 重构后全量扫描
 
-Part 2 CLEAN 后执行。grep 旧类名/旧文件名/旧模块数/旧测试数 → README/SKILL/CLAUDE/package/memory 逐文件修。
+Part 2 CLEAN 后：grep 旧类名/旧文件名/旧模块数/旧测试数 → README/SKILL/CLAUDE/package/memory 逐文件修。
 
 ## 记忆口诀
 
@@ -181,7 +184,10 @@ Part 2 全程串行，CRITICAL 必回退。
 PM 不得亲自做，自己审自己是盲区。
 ```
 
-## 资源
+<!-- L3: Resources (on-demand) -->
 
-- `resources/claude-md-template.md` — CLAUDE.md 模板段。Step -1 自动检测并集成到当前项目
-- `docs/methodology.md` — 完整方法论（背景、v0→v3 演进、unblind 案例）
+## Resources
+
+- `resources/claude-md-template.md` — CLAUDE.md 多 Agent 段模板。Step -1 自动集成
+- `docs/methodology.md` — 完整方法论（v0→v3 演进 + unblind 实战案例）
+- `README.md` — 安装指南、核心规则速查
