@@ -16,7 +16,7 @@
 
 ---
 
-## What is DevFlow?
+## ✨ What is DevFlow?
 
 DevFlow is a reusable **Agent Skill** that turns Claude Code into a project manager. When you say "multi-agent", instead of blindly dispatching subagents, it follows a battle-tested workflow:
 
@@ -30,7 +30,7 @@ Leader requests
 
 Born from building [unblind](https://github.com/Santazuki/unblind). Three iterations, forged by real problems.
 
-## What It Solves
+## 🎯 What It Solves
 
 Giving Claude Code the Agent tool is like handing someone a fleet of workers with no foreman.
 
@@ -41,7 +41,7 @@ Giving Claude Code the Agent tool is like handing someone a fleet of workers wit
 | Three reviewers audit same code — none go deep | Security / Quality / Integration split, zero overlap |
 | Reviewer finds a critical bug — now what? | CRITICAL blocks Part 2 → revert → same reviewer re-checks |
 
-## Core Rules
+## ⚙️ Core Rules
 
 **PM Hard Constraints**: SL, Reviewer, QA, and RE roles must be dispatched as independent agents. PM asks after each gate: *"Did I do this, or an independent agent?"*
 
@@ -51,7 +51,7 @@ Giving Claude Code the Agent tool is like handing someone a fleet of workers wit
 
 **5 Quality Gates**: G1 design done → G2 SL reviews design → G3 reviewers find no CRITICAL → G4 QA all green → G5 SL final verdict
 
-## Quick Start
+## 🚀 Quick Start
 
 Send this to Claude Code:
 
@@ -71,7 +71,7 @@ Integrate into CLAUDE.md:
 cat resources/workflow-config-template.md >> CLAUDE.md
 ```
 
-## Battle Tested
+## 🧪 Battle Tested
 
 Ran through unblind's Provider v3.0 refactor — 9 files, 3 developers parallel, QA in 1 round:
 

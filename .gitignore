@@ -2,11 +2,8 @@
 # 本文件是 devflow skill 自身的 gitignore，不是项目模板。
 # 项目 .gitignore 规则见 resources/dispatch-rules.md
 
-# 测试临时文件
-tests/**/*.log
-tests/**/tmp/
-tests/sample_images/*
-!tests/sample_images/*.md
+# 测试（本地验证，不提交）
+tests/
 
 # 编辑器
 .vscode/
