@@ -42,6 +42,8 @@ Part 2: SL → QA → RE (≤3 轮)
 
 **Subagent 模型选择**：机械任务用 flash，集成/判断用 pro。
 
-**测试路径约定**：测试源码 → `tests/`（提交）。测试报告 → `docs/test-results/`（提交）。临时文件（日志/缓存/截屏）→ `.gitignore` 排除。
+**测试路径约定**：测试源码 → `tests/`（提交）。测试报告 → `docs/test-results/`（提交）。临时文件（日志/缓存/截屏）→ `.gitignore` 排除。测试分层：单元 70% / 集成 20% / E2E 10%。
+
+**每步 Definition of Done**：设计文档已确认 → SL 审查 CLEAN → 代码提交且测试通过 → 审查无 CRITICAL → QA 全绿 → 文档同步 → 复盘完成。
 
 **重构后全量扫描**：grep 旧类名/旧文件名/旧模块数/旧测试数 → README/SKILL/CLAUDE/package/memory 逐文件修。

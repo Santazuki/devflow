@@ -52,7 +52,7 @@ compatibility: universal
 
 与 Leader 确认：**目标** / **边界** / **优先级** / **成功标准**。不跳过。
 
-## Step 1-6: 双 Pipeline
+## Step 1-7: 双 Pipeline
 
 ### Step 1: 设计 (G1)
 
@@ -80,11 +80,15 @@ CRITICAL → 阻断 Part 2 → 实现者修复 → 同一审查者复审查 → 
 
 ### Step 5: 质量门 (G4→G5)
 
-安全审查者汇总攻击面 → 独立测试者全量测试 → 通过则 CLEAN，失败则修复后重测（≤3轮）→ 安全审查者最终判定。
+安全审查者汇总攻击面 → 独立测试者全量测试（单元≥70%, 集成≥20%, E2E≥10%）→ 通过则 CLEAN，失败则修复后重测（≤3轮）→ 安全审查者最终判定。
 
 ### Step 6: 文档撰写
 
 按项目类型选择同步策略。所有类型必做：测试报告 + 项目元数据同步。详情见 `resources/dispatch-rules.md`。
+
+### Step 7: 复盘
+
+CLEAN 后启动复盘。对事不对人，关注系统改进而非追责。输出时间线 + 根因 + Action Items。详情见 `resources/dispatch-rules.md`。
 
 ## 记忆口诀
 
