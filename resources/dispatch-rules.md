@@ -105,7 +105,14 @@ PM 在 Step 6 文档撰写时执行版本号更新。遵循 [Semantic Versioning
 
 `npm version` 会自动：更新 `package.json` 版本号 → `git commit` → 创建 `git tag`（如 `v1.1.0`）。一步完成三步操作。
 
-GitHub Actions 建议配置：`git tag v*` 触发 → `npm install && npm test && npm publish`。发布前本地用 `npm link` 验证。
+**自动同步链**：若项目同时满足以下条件——git 管理、关联 GitHub 仓库、已发布 npm 包——PM 在 Step 6 完成版本号更新后，自动执行全域同步：
+
+```
+npm version → git push --tags → GitHub Actions → npm publish
+                                    └── 若未配 CI：手动 npm publish
+```
+
+PM 在 Step 0 对齐时检测：`git remote -v`（确认 GitHub）、`npm view <name>`（确认已发布）。若三个条件都满足，Step 6 按此链自动推进，无需 Leader 额外确认。
 
 ## 分支管理
 
