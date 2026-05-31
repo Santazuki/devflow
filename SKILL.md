@@ -8,8 +8,7 @@ description: >
   ≤3 rounds). Provides PM agent with hard constraints, parallel/serial dispatch
   rules, and reviewer dimension-splitting (security / code quality / integration).
   Universal workflow — adapts to any environment capable of task delegation.
-  Triggers: "多agent", "devflow", "dual pipeline", "dispatch plan", "派发计划",
-  "关口", "multi-agent workflow", "lite", "轻量", "自适应".
+  Triggers: "多agent", "devflow".
   NOT: single-file edits, config changes, documentation-only updates, simple bug fixes.
 metadata:
   version: "1.0.0"
