@@ -19,6 +19,32 @@
 | 代码逻辑 bug | Developer | Part 1 |
 | 设计缺陷/接口断裂 | Architect | Part 1 从头 |
 
+## 测试代码路径
+
+QA 执行测试时，PM 必须明确测试代码位置。若项目未约定，按以下默认规则：
+
+| 路径 | 用途 | 是否提交 |
+|------|------|:---:|
+| `tests/` 或 `test/` | 测试源码（用例、fixtures） | ✅ 提交 |
+| `docs/test-results/` | 测试报告（Step 6 产出） | ✅ 提交 |
+| 测试产生的临时文件 | 缓存、截图、日志 | ❌ `.gitignore` 排除 |
+
+PM 在 Step 0 对齐需求时确认测试路径。如项目无测试目录，指定一个（推荐 `tests/`）。
+
+### .gitignore
+
+项目必须排除测试产生的临时文件。最低配置：
+
+```gitignore
+# 测试临时文件
+tests/**/*.log
+tests/**/tmp/
+tests/sample_images/*
+!tests/sample_images/*.md
+```
+
+PM 在 Step 3 实现阶段确保 `.gitignore` 覆盖测试临时文件。
+
 ## 重构后全量扫描
 
 Part 2 CLEAN 后执行。grep 旧类名/旧文件名/旧模块数/旧测试数 → README/SKILL/CLAUDE/package/memory 逐文件修。
