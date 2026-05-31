@@ -122,6 +122,15 @@ SL 攻击面汇总 → QA 全量测试 (Agent 独立跑)
 
 Part 2 CLEAN 后：grep 旧类名/旧文件名/旧模块数/旧测试数 → README/SKILL/CLAUDE/package/memory 逐文件修。
 
+## 记忆口诀
+
+```
+只读一定并行，写操作用文件判。
+无交无依赖并行，有交有依赖串行。
+Part 2 全程串行，CRITICAL 必回退。
+PM 不得亲自做，自己审自己是盲区。
+```
+
 <!-- LEVEL 3: Resources (on-demand, see files below) -->
 
 ## Resources
