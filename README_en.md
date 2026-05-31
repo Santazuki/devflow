@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/version-1.0-blue" alt="version">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="license">
   <img src="https://img.shields.io/badge/agentskills.io-compatible-purple" alt="agentskills.io">
-  <img src="https://img.shields.io/badge/Claude%20Code-ready-orange" alt="Claude Code">
+  <img src="https://img.shields.io/badge/universal-Claude%20Code%20%7C%20Copilot%20%7C%20Cursor%20%7C%20Windsurf-lightgrey" alt="universal">
 </p>
 
 ---
