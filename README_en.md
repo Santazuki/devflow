@@ -68,7 +68,7 @@ In Claude Code, say: `"multi-agent dev"`, `"dispatch plan"`, `"which tasks can p
 Integrate into CLAUDE.md:
 
 ```bash
-cat resources/claude-md-template.md >> CLAUDE.md
+cat resources/workflow-config-template.md >> CLAUDE.md
 ```
 
 ## Battle Tested

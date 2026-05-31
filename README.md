@@ -68,7 +68,7 @@ git clone https://github.com/Santazuki/devflow.git .claude/skills/devflow
 集成到项目 CLAUDE.md：
 
 ```bash
-cat resources/claude-md-template.md >> CLAUDE.md
+cat resources/workflow-config-template.md >> CLAUDE.md
 ```
 
 ## 实战验证
