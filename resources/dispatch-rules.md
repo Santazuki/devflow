@@ -97,14 +97,15 @@ PM 在 Step 6 文档撰写时执行版本号更新。遵循 [Semantic Versioning
 若项目是 npm 包（如 zeshim），Step 6 完成后 PM 执行：
 
 ```
-1. 更新 package.json version（semver）
-2. 更新 CHANGELOG.md（记录本次变更）
-3. git add + commit + tag（如 v1.1.0）
-4. git push && git push --tags（触发 GitHub CI）
-5. npm publish（从 CI 或手动）
+1. npm version patch|minor|major（自动 bump + commit + tag）
+2. 更新 CHANGELOG.md（记录本次变更），amend 到上一步 commit
+3. git push && git push --tags（触发 GitHub CI）
+4. npm publish（建议 CI 自动：git tag v* → npm publish）
 ```
 
-GitHub Actions 建议配置：`git tag v*` → 自动 `npm publish`。本地开发用 `npm link` 验证。
+`npm version` 会自动：更新 `package.json` 版本号 → `git commit` → 创建 `git tag`（如 `v1.1.0`）。一步完成三步操作。
+
+GitHub Actions 建议配置：`git tag v*` 触发 → `npm install && npm test && npm publish`。发布前本地用 `npm link` 验证。
 
 ## 分支管理
 
