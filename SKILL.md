@@ -101,6 +101,17 @@ SL 攻击面汇总 → QA 全量测试 (Agent 独立跑)
   → FAIL? → RE 修复 → QA 重测 (≤3轮) → SL 判定
 ```
 
+### Step 6: 文档撰写
+
+Part 2 CLEAN 后，PM 执行以下文档工作：
+
+- **测试报告**：输出到 `docs/test-results/step<N>-<name>.md`，含测试数、通过/失败/跳过统计
+- **CLAUDE.md 同步**：更新模块数、测试数、Phase 状态、架构描述
+- **README/SKILL/package 同步**：版本号、功能列表、目录结构
+- **记忆文件**：设计决策、项目状态、文档索引写入 memory/
+
+文档写完后执行全量扫描确保无遗漏。
+
 ## 派发前自问 6 条
 
 1. 这个角色我能亲自做？（SL/Reviewer/QA/RE → 不能）
