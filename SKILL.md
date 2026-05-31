@@ -9,7 +9,7 @@ description: >
   rules, and reviewer dimension-splitting (security / code quality / integration).
   Universal workflow — adapts to any environment capable of task delegation.
   Triggers: "多agent", "devflow", "dual pipeline", "dispatch plan", "派发计划",
-  "关口", "multi-agent workflow".
+  "关口", "multi-agent workflow", "lite", "轻量", "自适应".
   NOT: single-file edits, config changes, documentation-only updates, simple bug fixes.
 metadata:
   version: "1.0.0"
@@ -48,9 +48,22 @@ compatibility: universal
 - 测试失败 → 诊断修复；环境/配置本轮修，代码 bug 回实现者
 - 3 轮测试未过 → SL 判定：非阻塞→known-issues，阻塞性→通知 Leader
 
-## Step 0: 对齐需求
+## Step -1: 熟悉项目
 
-与 Leader 确认：**目标** / **边界** / **优先级** / **成功标准** / **分支策略**。检测 `git remote -v`（GitHub）和 `npm view <name>`（npm 已发布）。不跳过。
+首次或新项目触发时，PM 快速了解现状：读取 CLAUDE.md、README、package.json 等关键文件，确认项目类型（Skill/npm/CLI/通用）、测试框架、CI 配置。无需 Leader 参与，静默完成。
+
+## Step 0: 对齐需求 + 选择模式
+
+与 Leader 确认：**目标** / **边界** / **优先级** / **成功标准** / **分支策略**。检测 `git remote -v`（GitHub）和 `npm view <name>`（npm 已发布）。
+
+**同时判定规模模式**——Leader 指定或 PM 根据需求复杂度自适应建议：
+
+| 模式 | 适用 | 步骤 |
+|------|------|------|
+| **Full** | >5 文件、架构变更、安全敏感 | Step 1-7 全流程 |
+| **Lite** | 2-5 文件、低风险、无架构变更 | 合并路线（见 `resources/dispatch-rules.md`） |
+
+判定依据：改动文件数、是否涉及安全模块、是否有 API/接口变更、Leader 明确偏好。不确定时默认 Full。不跳过。
 
 ## Step 1-7: 双 Pipeline
 
