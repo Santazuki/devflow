@@ -103,12 +103,16 @@ SL 攻击面汇总 → QA 全量测试 (Agent 独立跑)
 
 ### Step 6: 文档撰写
 
-Part 2 CLEAN 后，PM 执行以下文档工作：
+Part 2 CLEAN 后，PM 根据项目类型选择同步策略：
 
-- **测试报告**：输出到 `docs/test-results/step<N>-<name>.md`，含测试数、通过/失败/跳过统计
-- **CLAUDE.md 同步**：更新模块数、测试数、Phase 状态、架构描述
-- **README 同步**：更新功能列表、版本号、目录结构（如有变更）
-- **记忆文件**：设计决策、项目状态、文档索引写入 memory/
+| 项目类型 | 同步内容 |
+|----------|------|
+| **Agent Skill** | SKILL.md、README、CLAUDE.md、测试报告、memory/ |
+| **npm 包 / SDK** | README、package.json、CHANGELOG、API 文档 |
+| **CLI 工具** | README、--help 输出、man page |
+| **通用项目** | README、CLAUDE.md、测试报告 |
+
+**所有类型必做**：测试报告（`docs/test-results/step<N>-<name>.md`）+ CLAUDE.md 模块/测试数同步。
 
 文档写完后执行全量扫描确保无遗漏。
 
