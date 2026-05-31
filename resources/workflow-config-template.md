@@ -47,3 +47,7 @@ Part 2: SL → QA → RE (≤3 轮)
 **每步 Definition of Done**：设计文档已确认 → SL 审查 CLEAN → 代码提交且测试通过 → 审查无 CRITICAL → QA 全绿 → 文档同步 → 复盘完成。
 
 **重构后全量扫描**：grep 旧类名/旧文件名/旧模块数/旧测试数 → README/SKILL/CLAUDE/package/memory 逐文件修。
+
+**版本号管理**：每次 CLEAN 后按 semver 更新。Bug→PATCH · Feature→MINOR · Breaking→MAJOR。npm 包同步 `package.json`，Skill 同步 `SKILL.md`。
+
+**分支策略**：Trunk-Based Development。`main` 始终可发布。Feature 分支 1-3 天，PR 合并通过 CI。

@@ -50,7 +50,7 @@ compatibility: universal
 
 ## Step 0: 对齐需求
 
-与 Leader 确认：**目标** / **边界** / **优先级** / **成功标准**。不跳过。
+与 Leader 确认：**目标** / **边界** / **优先级** / **成功标准** / **分支策略**。不跳过。
 
 ## Step 1-7: 双 Pipeline
 
@@ -84,7 +84,7 @@ CRITICAL → 阻断 Part 2 → 实现者修复 → 同一审查者复审查 → 
 
 ### Step 6: 文档撰写
 
-按项目类型选择同步策略。所有类型必做：测试报告 + 项目元数据同步。详情见 `resources/dispatch-rules.md`。
+按项目类型选择同步策略。所有类型必做：版本号更新（semver）+ 测试报告 + 项目元数据同步。npm 包执行发布流程。详情见 `resources/dispatch-rules.md`。
 
 ### Step 7: 复盘
 

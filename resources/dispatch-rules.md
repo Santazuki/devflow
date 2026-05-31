@@ -73,6 +73,56 @@ tests/sample_images/*
 
 PM 在 Step 3 实现阶段确保 `.gitignore` 覆盖测试临时文件。
 
+## 版本号管理
+
+PM 在 Step 6 文档撰写时执行版本号更新。遵循 [Semantic Versioning](https://semver.org) 规范：
+
+| 变更类型 | 版本 | 示例 |
+|------|:---:|------|
+| Bug 修复（不改变 API） | PATCH | 1.0.0 → 1.0.1 |
+| 新功能（向后兼容） | MINOR | 1.0.1 → 1.1.0 |
+| 破坏性变更（API 不兼容） | MAJOR | 1.1.0 → 2.0.0 |
+
+**何时更新**：每次 Part 2 CLEAN 后，PM 根据本次变更内容判定版本，按项目类型同步：
+
+| 项目类型 | 版本文件 | 同步目标 |
+|------|------|------|
+| **npm 包** | `package.json` | npm registry |
+| **Agent Skill** | `SKILL.md` metadata.version | 安装提示 |
+| **CLI 工具** | `package.json` + `--version` 输出 | 发布渠道 |
+| **通用项目** | 无强制要求 | Git tag（推荐） |
+
+## npm 包发布流程
+
+若项目是 npm 包（如 zeshim），Step 6 完成后 PM 执行：
+
+```
+1. 更新 package.json version（semver）
+2. 更新 CHANGELOG.md（记录本次变更）
+3. git add + commit + tag（如 v1.1.0）
+4. git push && git push --tags（触发 GitHub CI）
+5. npm publish（从 CI 或手动）
+```
+
+GitHub Actions 建议配置：`git tag v*` → 自动 `npm publish`。本地开发用 `npm link` 验证。
+
+## 分支管理
+
+PM 在 Step 0 对齐时确认分支策略。团队协作项目推荐 [Trunk-Based Development](https://trunkbaseddevelopment.com/)：
+
+| 分支类型 | 命名 | 生命周期 | 说明 |
+|------|------|------|------|
+| **trunk** | `main` / `master` | 永久 | 始终可发布，CI 保护 |
+| **feature** | `feat/<name>` | 1-3 天 | 短分支，频繁合并回 trunk |
+| **hotfix** | `fix/<name>` | <1 天 | 从 trunk 切出，修完立即合并 |
+
+**规则**：
+- 所有变更通过 PR 合并（不直接 push trunk）
+- PR 合并前必须通过 CI（测试 + lint + 安全扫描）
+- feature 分支存活超过 3 天 → PM 提醒拆分或合并
+- 冲突解决在 feature 分支侧（rebase trunk，不 merge 反向）
+- 个人项目可简化：直接在 trunk 上工作，feature 分支可选
+
 ## 重构后全量扫描
 
 Part 2 CLEAN 后执行。grep 旧类名/旧文件名/旧模块数/旧测试数 → README/SKILL/CLAUDE/package/memory 逐文件修。
