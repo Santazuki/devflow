@@ -5,6 +5,9 @@
 # 测试（本地验证，不提交）
 tests/
 
+# Claude Code 开发记录（本地，不提交）
+by_claude_code_dev_md/
+
 # 编辑器
 .vscode/
 .idea/
