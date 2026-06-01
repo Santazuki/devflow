@@ -119,5 +119,6 @@ PM 不得亲自做，自己审自己是盲区。
 - `resources/dispatch-rules.md` — 派发自问6条、回退规则、文档策略、全量扫描
 - `resources/platform-adapters.md` — 各平台执行方式（Claude Code/Copilot/Cursor/手动等）
 - `docs/methodology.md` — 完整方法论（v0→v3 演进 + unblind 实战案例）
+- `docs/cases/unblind-case-study.md` — unblind 多 Agent 协作开发全程实录
 - `README.md` — 安装指南、核心规则速查
 - `docs/devflow-validation.md` — 完整性检验文档（已验证：65/65 pass）
