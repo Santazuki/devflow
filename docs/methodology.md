@@ -136,7 +136,7 @@ Dev #3: 修改 scripts/lib/httpClient.js, scripts/lib/providers/registry.js,
 
 ## 这套方法能复用吗？
 
-整理出来之后，我发现它不绑定 unblind，不依赖特定工具。核心就是 **1 个 PM Agent + 6 个 Subagent + 5 个关口 + 3 条硬规则**。
+整理出来之后，我发现它不绑定 unblind，不依赖特定工具。核心就是 **1 个 PM Agent + 6 个 Subagent + 5 个关口 + 4 条 Iron Rules**。
 
 我把这套方法打包成了一个可安装的 Claude Code Skill：[DevFlow](https://github.com/Santazuki/devflow)。里面有完整的 CLAUDE.md 模板和操作指南。
 
