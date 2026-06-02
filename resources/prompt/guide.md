@@ -8,8 +8,8 @@
 | 模块 | 文件 | 加载时机 | 内容 |
 |------|------|------|------|
 | 编译管道 | 本文件 | 每次编译时 | 路由规则、桶内处理、category 约束映射 |
-| 提示词模板 | `prompt-templates.md` | Step 1-5 派发 Agent 时 | Architect/SL/Reviewer#1-3/QA/Developer/RE 完整模板 |
-| 压缩策略 | `prompt-compression.md` | 注入量 >50% 上限时 | 三级压缩 + 故障应对 + PM 自检清单 |
+| 提示词模板 | `templates.md` | Step 1-5 派发 Agent 时 | Architect/SL/Reviewer#1-3/QA/Developer/RE 完整模板 |
+| 压缩策略 | `compression.md` | 注入量 >50% 上限时 | 三级压缩 + 故障应对 + PM 自检清单 |
 
 ## 编译管道
 

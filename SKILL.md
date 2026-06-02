@@ -95,7 +95,7 @@ compatibility: universal
 
 Full 模式下，PM 在进入设计前执行上下文调研——了解领域知识，确保设计不凭空白猜。
 
-**两种调研模式**（详见 `resources/research/schema.md`）：
+**两种运行状态**（详见 `resources/research/schema.md`）：
 
 | 状态 | 驱动 | 何时 |
 |------|------|------|
@@ -175,7 +175,7 @@ Leader 全自动则免同步，PM 自判自推进。
 - `resources/platform-adapters.md` — 各平台执行方式（Claude Code/Copilot/Cursor/手动等）
 - `resources/research/schema.md` — Research Agent 角色定义、两种状态、输出 Schema、搜索策略
 - `resources/prompt/guide.md` — 提示词工程索引（编译管道 + 路由规则）
-- `resources/prompt/templates.md` — 6 个 Agent 提示词模板
+- `resources/prompt/templates.md` — Agent 提示词模板（Architect/SL/Reviewer×3/QA + Developer/RE 可选）
 - `resources/prompt/compression.md` — 注入量控制 + 三级压缩 + 故障应对
 - `resources/research/taxonomy.md` — 知识领域分类体系 + 映射表 + 未命中处理
 - `resources/research/taxonomy-extended.md` — 扩展映射表（未命中记录 + 候选 + 晋升）

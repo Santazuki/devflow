@@ -74,22 +74,21 @@ PM → 7 个 Subagent：
 
 | 文件 | 内容 | 版本 |
 |------|------|:---:|
-| `resources/dispatch-rules.md` | 派发自问、PM 交互纪律、上下文调研规则、测试分层、DoD、回退规则、版本管理、分支策略、复盘框架 | v1.1.0 |
+| `resources/dispatch/` (5 files) | 调度规则索引 + core/interaction/research/lifecycle | v1.1.0 |
 | `resources/platform-adapters.md` | Claude Code / Copilot / Cursor / Windsurf + Research Agent 行 | v1.1.0 |
-| `resources/research-agent-schema.md` | Research Agent 完整定义：3 种搜索模式 + 2 种状态 + Schema + 搜索策略 | v1.1.0 新增 |
-| `resources/prompt-augmentation-guide.md` | PM 提示词编译指南 + 6 个 Agent 提示词模板 + 注入量控制 | v1.1.0 新增 |
-| `resources/research-taxonomy.md` | 知识领域分类体系 + 10 行映射表 + 搜集方向判定算法 | v1.1.0 新增 |
+| `resources/research/` (5 files) | Research Agent 定义 + 分类体系 + 扩展表 + 整理机制 + 搜索策略 | v1.1.0 新增 |
+| `resources/prompt/` (3 files) | 提示词工程索引 + Agent 模板 + 压缩策略 | v1.1.0 新增 |
 | `resources/workflow-config-template.md` | 项目 CLAUDE.md 集成模板（含 Step 0.5） | v1.1.0 |
 | `docs/methodology.md` | 完整方法论（v0→v3 演进 + unblind 实战案例） | v1.0.0 |
 | `docs/contextual-research-plan.md` | 上下文调研增强设计文档（Phase 1-3 完整设计） | v1.1.0 新增 |
-| `docs/devflow-validation.md` | 完整性检验文档（102 项） | v1.1.0 |
+| `docs/devflow-validation.md` | 完整性检验文档（141 项） | v1.1.0 |
 | `README.md` + `README_en.md` | 安装指南、核心规则速查 | v1.0.0 |
 | `CLAUDE.md` | 本仓库开发指南 | v1.1.0 |
 
 ### 测试
 
-- `tests/devflow-check.js`：65 → **104 项**（v1.1.0）
-- 9 个检验类别：SKILL.md 结构、文件存在性、dispatch-rules 完整性、platform-adapters 覆盖、工作流链路、Iron Rules 映射、资源互引用、Research Agent Schema 完整性、Prompt Augmentation Guide 完整性
+- `tests/devflow-check.js`：**141 项**（v1.1.0）
+- 9 个检验类别：SKILL.md 结构、文件存在性、dispatch 模块完整性、platform-adapters 覆盖、工作流链路、Iron Rules 映射、资源互引用、Research Agent Schema 完整性、Prompt 模块完整性
 
 ### 实战检验
 
@@ -121,8 +120,7 @@ PM → 7 个 Subagent：
 |------|------|------|
 | Phase 2 映射表扩充 | 10 行 → 30+ 行映射表 + 速查卡 | 依赖实战反馈 |
 | Phase 3 反馈闭环 | Step 7 复盘 ↔ Knowledge Brief 准确度评估 | 依赖 Phase 2 |
-| dispatch-rules.md 长度 | 已 17 章节（含新增 PM 交互纪律 + 上下文调研），可能需拆分 | 待评估 |
-| 英文版资源 | research-agent-schema / prompt-augmentation-guide / taxonomy 目前仅中文 | 待需求 |
+| 英文版资源 | 部分 Resource 文件目前仅中文 | 待需求 |
 | workflow-config-template.md | "复制即用"未验证 | — |
 | git-workflow skill 打通 | Step 6 触发自动提交/打 tag | — |
 | **知识领域整理机制** | 映射表自底向上抽象重组：相似下层条目抽象升到上层。核心难点：分类重组（何时新增关注面/何时合并）和合并去重（相似搜索方向如何判定）。当前晋升/同步机制够用但缺少系统性整理逻辑。需新开文档设计 | 等实战积累 ≥10 条扩展条目后启动 |

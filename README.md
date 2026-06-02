@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0-blue" alt="version">
+  <img src="https://img.shields.io/badge/version-1.1.0-blue" alt="version">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="license">
   <img src="https://img.shields.io/badge/agentskills.io-compatible-purple" alt="agentskills.io">
   <img src="https://img.shields.io/badge/universal-Claude%20Code%20%7C%20Copilot%20%7C%20Cursor%20%7C%20Windsurf-lightgrey" alt="universal">
@@ -44,7 +44,7 @@ Leader 提需求
 
 ## ⚙️ 核心规则
 
-**PM 硬约束**：SL、Reviewer、QA、RE、Research 五个角色 PM 禁止亲自做。
+**PM 硬约束**：SL、Reviewer、QA、RE 四个角色 PM 禁止亲自做。Research Agent 为只读调研，不在此列。
 
 **串行 vs 并行**：两问决策——B 依赖 A 的产出？改同一文件？都不是就并行。只读 Agent 永远可并行。
 
@@ -100,7 +100,7 @@ git clone https://github.com/Santazuki/devflow.git
 ### 验证
 
 ```bash
-# 完整性检验（105 项）
+# 完整性检验（141 项）
 node tests/devflow-check.js
 ```
 

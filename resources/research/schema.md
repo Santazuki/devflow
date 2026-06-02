@@ -85,7 +85,7 @@ PM 或 Agent 按以下优先级自动判定，不增加额外决策负担：
 |------|------|
 | 触发者 | PM（Step 0.5） |
 | 触发条件 | Full 模式 + 需求命中至少 1 个关注面 |
-| 搜什么 | 对照 research-taxonomy 分类体系，系统性覆盖所有命中关注面 |
+| 搜什么 | 对照 `resources/research/taxonomy.md` 分类体系，系统性覆盖所有命中关注面 |
 | 默认模式 | **高**（8-15 条 findings，≥3 源交叉验证，~3000 tokens）。单关注面可降为**中** |
 | 输出 | 完整 Knowledge Brief（设计约束 + 模式 + 反模式 + 检查清单） |
 | Token 预算 | 高 ~3000 / 中 ~1500 |
@@ -210,7 +210,7 @@ PM 或 Agent 按以下优先级自动判定，不增加额外决策负担：
 | 字段 | 类型 | 说明 |
 |------|------|------|
 | `mode` | `"planned"` | 固定值，标识此输出来自规划调研 |
-| `domain` | string | 关注面代码（A-J），见 research-taxonomy |
+| `domain` | string | 关注面代码（A-J），见 `resources/research/taxonomy.md` |
 | `taskContext` | string | 任务背景，1-2 句 |
 | `sourcesSummary` | string | 资料来源概述 |
 | `findings[].id` | string | 唯一标识，格式 `<domain>-<3位序号>` |

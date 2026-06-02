@@ -6,10 +6,10 @@
 
 | 模块 | 文件 | 典型加载时机 | 章节 |
 |------|------|------|------|
-| 核心调度 | `dispatch-core.md` | 每次 | 规模模式、派发自问、测试分层、DoD、回退、测试路径、口诀 |
-| PM 交互 | `dispatch-interaction.md` | Part 间同步 | PM-Leader 交互纪律（禁止行为、方向同步、全自动模式） |
-| 上下文调研 | `dispatch-research.md` | Step 0/0.5 | 调研时机、搜集判定、规划/触发调研规则、编译注入 |
-| 流程管理 | `dispatch-lifecycle.md` | Step 6/7 | 版本号、npm 发布、分支、文档策略、Spec 同步、README 同步、流程闭环、复盘 |
+| 核心调度 | `core.md` | 每次 | 规模模式、派发自问、测试分层、DoD、回退、测试路径、口诀 |
+| PM 交互 | `interaction.md` | Part 间同步 | PM-Leader 交互纪律（禁止行为、方向同步、全自动模式） |
+| 上下文调研 | `research.md` | Step 0/0.5 | 调研时机、搜集判定、规划/触发调研规则、编译注入 |
+| 流程管理 | `lifecycle.md` | Step 6/7 | 版本号、npm 发布、分支、文档策略、Spec 同步、README 同步、流程闭环、复盘 |
 
 ## 速查
 

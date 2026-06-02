@@ -39,8 +39,11 @@ node tests/devflow-check.js
 | `resources/research/taxonomy-reorganization.md` | 知识领域整理机制（晋升/合并/归档） |
 | `resources/research/search-strategy.md` | 搜索操作规范：关键词构造、来源判定、Fetch 要求 |
 | `resources/workflow-config-template.md` | 用户项目集成模板 |
+| `README.md` + `README_en.md` | 安装指南、核心规则速查 |
 | `docs/methodology.md` | 方法论演进（v0→v3）+ unblind 实战案例 |
 | `docs/contextual-research-plan.md` | 调研增强设计文档（参考，非 L3 操作文件） |
+| `docs/devflow-validation.md` | 完整性检验文档 |
+| `tests/devflow-check.js` | 结构完整性校验脚本 |
 | `by_claude_code_dev_md/progress.md` | **DevFlow 自身开发进度记录。新 Plan 经同意后 or 实战有新进展时必须更新** |
 
 ## 编辑指南
