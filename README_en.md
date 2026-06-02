@@ -58,13 +58,20 @@ Giving Claude Code the Agent tool is like handing someone a fleet of workers wit
 
 ## 🚀 Quick Start
 
-**npm install (persistent, keeps files locally):**
+**One-shot install to skills dir (npx, run once):**
+
+```bash
+npx @santazuki/devflow
+```
+
+**Manual install (npm, persistent + devflow command):**
 
 ```bash
 npm install -g @santazuki/devflow
+devflow          # run installer
 ```
 
-**GitHub clone to skills directory:**
+**GitHub clone:**
 
 ```bash
 git clone https://github.com/Santazuki/devflow.git .claude/skills/devflow

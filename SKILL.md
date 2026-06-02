@@ -11,7 +11,7 @@ description: >
   Triggers: "多agent", "devflow".
   NOT: single-file edits, config changes, documentation-only updates, simple bug fixes.
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
   category: workflow
   author: Santaz
   repository: https://github.com/Santazuki/devflow

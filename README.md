@@ -58,13 +58,20 @@ Leader 提需求
 
 ## 🚀 快速开始
 
-**npm 安装（持久保留在本地）：**
+**一键安装到 skills 目录（npx，执行后即完成）：**
+
+```bash
+npx @santazuki/devflow
+```
+
+**手动安装（npm，持久保留 + devflow 命令）：**
 
 ```bash
 npm install -g @santazuki/devflow
+devflow          # 运行安装脚本
 ```
 
-**GitHub 直接下载到 skills 目录：**
+**GitHub 直接下载：**
 
 ```bash
 git clone https://github.com/Santazuki/devflow.git .claude/skills/devflow
