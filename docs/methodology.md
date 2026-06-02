@@ -1,6 +1,6 @@
 # 我在一个 AI Agent 项目里，不小心摸索出一套多 Agent 协作的开发方法
 
-> 核心洞察：让 PM Agent 管住 6 个 Subagent，但 PM 自己不能越权做审查——自己审自己的活，等于没审。
+> 核心洞察：让 PM Agent 管住 7 个 Subagent，但 PM 自己不能越权做审查——自己审自己的活，等于没审。
 
 我大三下学期。2026 年 5 月，我独自在做一个叫 [unblind](https://github.com/Santazuki/unblind) 的 Claude Code Skill——给没有视觉能力的纯文本模型装一双眼睛，把图片甩给视觉 API，返回文字描述。
 
@@ -136,7 +136,9 @@ Dev #3: 修改 scripts/lib/httpClient.js, scripts/lib/providers/registry.js,
 
 ## 这套方法能复用吗？
 
-整理出来之后，我发现它不绑定 unblind，不依赖特定工具。核心就是 **1 个 PM Agent + 6 个 Subagent + 5 个关口 + 4 条 Iron Rules**。
+整理出来之后，我发现它不绑定 unblind，不依赖特定工具。核心就是 **1 个 PM Agent + 7 个 Subagent + 5 个关口 + 6 条 Iron Rules**。
+
+> 2026-06 更新（v1.1.0）：新增 Research Agent（上下文调研）、Step 0.5 Discovery、Iron Rules #5（PM 交互纪律）和 #6（Step 0.5 不跳过）、提示词工程管道、三级上下文压缩。当前版本在持续演进中。
 
 我把这套方法打包成了一个可安装的 Claude Code Skill：[DevFlow](https://github.com/Santazuki/devflow)。里面有完整的 CLAUDE.md 模板和操作指南。
 

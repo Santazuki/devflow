@@ -1,7 +1,7 @@
 <h1 align="center">DevFlow</h1>
 <p align="center"><em>A dual-pipeline multi-agent workflow framework</em></p>
 <p align="center">
-  PM + 6 agents + 5 gates = code that doesn't silently break
+  PM + 7 agents + 5 gates = code that doesn't silently break
 </p>
 <p align="center">
   <a href="README.md">中文</a> | English
@@ -22,10 +22,11 @@ DevFlow is a reusable **Agent Skill** that turns Claude Code into a project mana
 
 ```
 Leader requests
-  → PM aligns scope
+  → PM aligns scope + real-time research
+    → Part 0: Research Agent discovery (Step 0.5)
     → Part 1: Architect designs → Developer builds → 3×Reviewers audit
     → Part 2: Security Lead → QA tests → RE fixes (≤3 rounds)
-      → CLEAN or loop back
+      → CLEAN → Step 6 Spec sync → Step 7 post-mortem
 ```
 
 Born from building [unblind](https://github.com/Santazuki/unblind). Three iterations, forged by real problems.
@@ -43,11 +44,15 @@ Giving Claude Code the Agent tool is like handing someone a fleet of workers wit
 
 ## ⚙️ Core Rules
 
-**PM Hard Constraints**: SL, Reviewer, QA, and RE roles must be dispatched as independent agents. PM asks after each gate: *"Did I do this, or an independent agent?"*
+**PM Hard Constraints**: SL, Reviewer, QA, RE, and Research roles must be dispatched as independent agents.
 
 **Serial vs Parallel**: Two questions — does B depend on A's output? Same file? If neither, parallel. Read-only agents always parallel.
 
 **Reviewer Dimension Split**: #1 Security (hardcoded keys, injection) · #2 Code Quality (interfaces, DRY, compat) · #3 Integration (data consistency, call chain)
+
+**Step 0.5 Discovery**: Research domain standards, patterns, and anti-patterns before design. Findings injected into downstream agent prompts.
+
+**6 Iron Rules**: PM never takes agent roles · no merge without tests · never skip alignment · CRITICAL requires re-review · never ask for commit/advance permission mid-flow · never skip Step 0.5 (Full mode)
 
 **5 Quality Gates**: G1 design done → G2 SL reviews design → G3 reviewers find no CRITICAL → G4 QA all green → G5 SL final verdict
 
@@ -95,7 +100,7 @@ git clone https://github.com/Santazuki/devflow.git
 ### Verify
 
 ```bash
-node -e "const fm = require('fs').readFileSync('SKILL.md','utf8').match(/^---\n([\s\S]*?)\n---/); console.log(fm ? '✅ valid frontmatter' : '❌ missing')"
+node tests/devflow-check.js
 ```
 
 ## License
