@@ -44,7 +44,7 @@ Giving Claude Code the Agent tool is like handing someone a fleet of workers wit
 
 ## ⚙️ Core Rules
 
-**PM Hard Constraints**: SL, Reviewer, QA, RE, and Research roles must be dispatched as independent agents.
+**PM Hard Constraints**: SL, Reviewer, QA, and RE must be independent agents. Research Agent is read-only, not subject to this constraint.
 
 **Serial vs Parallel**: Two questions — does B depend on A's output? Same file? If neither, parallel. Read-only agents always parallel.
 

@@ -17,7 +17,7 @@ node tests/devflow-check.js
 `SKILL.md` 三级渐进加载：
 - L1（~340 tok）frontmatter —— 始终加载
 - L2（~2,400 tok）正文 —— 触发后加载，含 Iron Rules + Step -1→7 + 记忆口诀
-- L3 `resources/` —— 按需加载，共 9 个文件（~18,800 tok 合计）
+- L3 `resources/` —— 按需加载，15 个文件分 3 子目录 + 2 根文件（~17,000 tok 合计）
 
 ## 关键文件
 
