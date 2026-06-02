@@ -66,6 +66,7 @@ compatibility: universal
 - 调研来源未验证（sourceVerified=false）→ 降级为"参考"，不作为硬约束
 - 调研发现过多（>15 条）→ PM 按严重度/影响面截断，优先保留 standard 和 CRITICAL 相关
 - 调研搜索无结果 → 标注"该领域无相关标准"，不阻塞流程
+- 需求未命中知识领域映射表 → 以关键词提取为准，告知 Leader 未命中情况，默认搜安全+架构两面保底。复盘时评估是否加入映射表
 - 偏离判定 MAJOR → 暂停推进，Leader 决策后方可继续
 - 偏离判定 MINOR → 继续推进但通知 Leader 注意
 
