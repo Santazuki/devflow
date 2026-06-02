@@ -29,6 +29,7 @@ metadata:
     - resources/prompt/templates.md
     - resources/prompt/compression.md
     - resources/research/taxonomy.md
+    - resources/research/taxonomy-extended.md
     - resources/research/search-strategy.md
     - docs/methodology.md
 compatibility: universal
@@ -175,7 +176,8 @@ Leader 全自动则免同步，PM 自判自推进。
 - `resources/prompt/guide.md` — 提示词工程索引（编译管道 + 路由规则）
 - `resources/prompt/templates.md` — 6 个 Agent 提示词模板
 - `resources/prompt/compression.md` — 注入量控制 + 三级压缩 + 故障应对
-- `resources/research/taxonomy.md` — 知识领域分类体系 + 需求→搜集方向映射表
+- `resources/research/taxonomy.md` — 知识领域分类体系 + 映射表 + 未命中处理
+- `resources/research/taxonomy-extended.md` — 扩展映射表（未命中记录 + 候选 + 晋升）
 - `docs/methodology.md` — 完整方法论（v0→v3 演进 + unblind 实战案例）
 - `resources/research/search-strategy.md` — 搜索策略指南（关键词构造、来源判定、Fetch 要求）
 - `README.md` — 安装指南、核心规则速查
