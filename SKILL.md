@@ -17,8 +17,12 @@ metadata:
   repository: https://github.com/Santazuki/devflow
   requirements: none
   bundled_resources:
-    - resources/workflow-config-template.md
     - resources/dispatch-rules.md
+    - resources/dispatch-core.md
+    - resources/dispatch-interaction.md
+    - resources/dispatch-research.md
+    - resources/dispatch-lifecycle.md
+    - resources/workflow-config-template.md
     - resources/platform-adapters.md
     - resources/research-agent-schema.md
     - resources/prompt-augmentation-guide.md
@@ -158,7 +162,11 @@ Leader 全自动则免同步，PM 自判自推进。
 ## Resources
 
 - `resources/workflow-config-template.md` — 项目配置模板。首次使用时集成
-- `resources/dispatch-rules.md` — 派发自问6条、PM交互纪律、回退规则、文档策略、全量扫描
+- `resources/dispatch-rules.md` — 调度规则索引（按需加载模块）
+- `resources/dispatch-core.md` — 核心调度：模式、派发、测试、DoD、回退、口诀
+- `resources/dispatch-interaction.md` — PM-Leader 交互纪律
+- `resources/dispatch-research.md` — 上下文调研规则
+- `resources/dispatch-lifecycle.md` — 流程管理：版本、文档、Spec、流程闭环、复盘
 - `resources/platform-adapters.md` — 各平台执行方式（Claude Code/Copilot/Cursor/手动等）
 - `resources/research-agent-schema.md` — Research Agent 角色定义、两种状态、输出 Schema、搜索策略
 - `resources/prompt-augmentation-guide.md` — PM 提示词编译指南 + 各 Agent 提示词模板

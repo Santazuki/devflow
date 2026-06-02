@@ -8,7 +8,7 @@
 |------|:---:|------|
 | SKILL.md 结构 | 17 | 章节完整性、frontmatter、L1/L2/L3 标记 |
 | 文件存在性 | 13 | 所有资源文件就位（含 research-search-strategy） |
-| dispatch-rules.md | 17 | 子章节覆盖（含 PM 交互纪律、上下文调研规则、Spec 同步） |
+| dispatch 模块 | 28 | 索引 + 4 模块（core/interaction/research/lifecycle）跨文件覆盖 |
 | platform-adapters.md | 6 | 平台覆盖（含 Research Agent） |
 | research-agent-schema.md | 7 | 角色定义、两种状态、Schema、搜索策略、派发规则 |
 | prompt-augmentation-guide.md | 6 | 编译管道、各 Agent 模板、注入量控制 |
