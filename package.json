@@ -1,0 +1,30 @@
+{
+  "name": "devflow",
+  "version": "1.1.0",
+  "description": "双 Pipeline 多 Agent 协作工作流 Skill —— PM + 7 Agent + 5 道关口",
+  "keywords": [
+    "agent-skill",
+    "devflow",
+    "multi-agent",
+    "workflow",
+    "orchestration",
+    "claude-code",
+    "ai-agent"
+  ],
+  "author": "Santaz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Santazuki/devflow"
+  },
+  "files": [
+    "SKILL.md",
+    "CLAUDE.md",
+    "README.md",
+    "README_en.md",
+    "LICENSE",
+    "resources/",
+    "docs/",
+    "tests/"
+  ]
+}

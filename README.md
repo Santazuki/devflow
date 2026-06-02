@@ -58,11 +58,19 @@ Leader 提需求
 
 ## 🚀 快速开始
 
-把下面这句话发给 Claude Code：
+**AI Agent 用 npx（零安装，临时执行）：**
 
-> 帮我安装 devflow skill，GitHub 仓库是 https://github.com/Santazuki/devflow，clone 到 .claude/skills/devflow 即可。
+```bash
+npx devflow
+```
 
-或手动：
+**人用 npm（全局安装，持久可用）：**
+
+```bash
+npm install -g devflow
+```
+
+**或手动从 GitHub 安装：**
 
 ```bash
 git clone https://github.com/Santazuki/devflow.git .claude/skills/devflow

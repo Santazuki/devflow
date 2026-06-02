@@ -58,11 +58,19 @@ Giving Claude Code the Agent tool is like handing someone a fleet of workers wit
 
 ## 🚀 Quick Start
 
-Send this to Claude Code:
+**AI Agent (npx — zero install, temporary):**
 
-> Install the devflow skill from https://github.com/Santazuki/devflow — clone it to .claude/skills/devflow.
+```bash
+npx devflow
+```
 
-Or manually:
+**Human (npm — global install, persistent):**
+
+```bash
+npm install -g devflow
+```
+
+**Or manually from GitHub:**
 
 ```bash
 git clone https://github.com/Santazuki/devflow.git .claude/skills/devflow
