@@ -17,22 +17,7 @@ metadata:
   repository: https://github.com/Santazuki/devflow
   requirements: none
   bundled_resources:
-    - resources/dispatch/rules.md
-    - resources/dispatch/core.md
-    - resources/dispatch/interaction.md
-    - resources/dispatch/research.md
-    - resources/dispatch/lifecycle.md
-    - resources/workflow-config-template.md
-    - resources/platform-adapters.md
-    - resources/research/schema.md
-    - resources/prompt/guide.md
-    - resources/prompt/templates.md
-    - resources/prompt/compression.md
-    - resources/research/taxonomy.md
-    - resources/research/taxonomy-extended.md
-    - resources/research/taxonomy-reorganization.md
-    - resources/research/search-strategy.md
-    - docs/methodology.md
+    - resources/resource-index.md
 compatibility: universal
 ---
 
@@ -166,21 +151,4 @@ Leader 全自动则免同步，PM 自判自推进。
 
 ## Resources
 
-- `resources/workflow-config-template.md` — 项目配置模板。首次使用时集成
-- `resources/dispatch/rules.md` — 调度规则索引（按需加载模块）
-- `resources/dispatch/core.md` — 核心调度：模式、派发、测试、DoD、回退、口诀
-- `resources/dispatch/interaction.md` — PM-Leader 交互纪律
-- `resources/dispatch/research.md` — 上下文调研规则
-- `resources/dispatch/lifecycle.md` — 流程管理：版本、文档、Spec、流程闭环、复盘
-- `resources/platform-adapters.md` — 各平台执行方式（Claude Code/Copilot/Cursor/手动等）
-- `resources/research/schema.md` — Research Agent 角色定义、两种状态、输出 Schema、搜索策略
-- `resources/prompt/guide.md` — 提示词工程索引（编译管道 + 路由规则）
-- `resources/prompt/templates.md` — Agent 提示词模板（Architect/SL/Reviewer×3/QA + Developer/RE 可选）
-- `resources/prompt/compression.md` — 注入量控制 + 三级压缩 + 故障应对
-- `resources/research/taxonomy.md` — 知识领域分类体系 + 映射表 + 未命中处理
-- `resources/research/taxonomy-extended.md` — 扩展映射表（未命中记录 + 候选 + 晋升）
-- `resources/research/taxonomy-reorganization.md` — 知识领域整理机制（晋升/合并/归档）
-- `docs/methodology.md` — 完整方法论（v0→v3 演进 + unblind 实战案例）
-- `resources/research/search-strategy.md` — 搜索策略指南（关键词构造、来源判定、Fetch 要求）
-- `README.md` — 安装指南、核心规则速查
-- `docs/devflow-validation.md` — 完整性检验文档
+完整资源清单 → 见 `resources/resource-index.md`。
