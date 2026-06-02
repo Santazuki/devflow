@@ -30,6 +30,7 @@ metadata:
     - resources/prompt/compression.md
     - resources/research/taxonomy.md
     - resources/research/taxonomy-extended.md
+    - resources/research/taxonomy-reorganization.md
     - resources/research/search-strategy.md
     - docs/methodology.md
 compatibility: universal
@@ -178,6 +179,7 @@ Leader 全自动则免同步，PM 自判自推进。
 - `resources/prompt/compression.md` — 注入量控制 + 三级压缩 + 故障应对
 - `resources/research/taxonomy.md` — 知识领域分类体系 + 映射表 + 未命中处理
 - `resources/research/taxonomy-extended.md` — 扩展映射表（未命中记录 + 候选 + 晋升）
+- `resources/research/taxonomy-reorganization.md` — 知识领域整理机制（晋升/合并/归档）
 - `docs/methodology.md` — 完整方法论（v0→v3 演进 + unblind 实战案例）
 - `resources/research/search-strategy.md` — 搜索策略指南（关键词构造、来源判定、Fetch 要求）
 - `README.md` — 安装指南、核心规则速查

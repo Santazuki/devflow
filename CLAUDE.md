@@ -35,7 +35,8 @@ node tests/devflow-check.js
 | `resources/prompt/templates.md` | Agent 提示词模板 |
 | `resources/prompt/compression.md` | 注入量控制 + 三级压缩 + 故障应对 |
 | `resources/research/taxonomy.md` | 知识分类体系 + 映射表 + 未命中处理 |
-| `resources/research/taxonomy-extended.md` | 扩展映射表（未命中记录 + 候选 + 晋升） |
+| `resources/research/taxonomy-extended.md` | 扩展映射表（未命中记录 + 候选） |
+| `resources/research/taxonomy-reorganization.md` | 知识领域整理机制（晋升/合并/归档） |
 | `resources/research/search-strategy.md` | 搜索操作规范：关键词构造、来源判定、Fetch 要求 |
 | `resources/workflow-config-template.md` | 用户项目集成模板 |
 | `docs/methodology.md` | 方法论演进（v0→v3）+ unblind 实战案例 |
