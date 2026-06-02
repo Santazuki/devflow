@@ -58,19 +58,13 @@ Giving Claude Code the Agent tool is like handing someone a fleet of workers wit
 
 ## 🚀 Quick Start
 
-**AI Agent (npx — one-shot, no install):**
-
-```bash
-npx @santazuki/devflow
-```
-
-**Manual global install (npm):**
+**npm install (persistent, keeps files locally):**
 
 ```bash
 npm install -g @santazuki/devflow
 ```
 
-**Manual download (GitHub → skills directory):**
+**GitHub clone to skills directory:**
 
 ```bash
 git clone https://github.com/Santazuki/devflow.git .claude/skills/devflow

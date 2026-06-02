@@ -58,19 +58,13 @@ Leader 提需求
 
 ## 🚀 快速开始
 
-**AI Agent 一键使用（npx，不安装）：**
-
-```bash
-npx @santazuki/devflow
-```
-
-**手动全局安装（npm）：**
+**npm 安装（持久保留在本地）：**
 
 ```bash
 npm install -g @santazuki/devflow
 ```
 
-**手动下载（GitHub → skills 目录）：**
+**GitHub 直接下载到 skills 目录：**
 
 ```bash
 git clone https://github.com/Santazuki/devflow.git .claude/skills/devflow
