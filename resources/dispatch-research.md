@@ -1,7 +1,7 @@
 # 上下文调研规则（Step 0 + Step 0.5）
 
 > 加载时机：Step 0 对齐中、Step 0.5 调研阶段。
-> 详细定义见 `resources/research-agent-schema.md` 和 `resources/prompt-augmentation-guide.md`。
+> 详细定义见 `resources/research-agent-schema.md`、`resources/prompt-templates.md`、`resources/prompt-compression.md`。
 
 ## 调研的两个时机
 
@@ -79,7 +79,7 @@ PM 在 Step 0 对齐需求后，从需求描述中提取关键词，对照分类
 
 ## 编译与注入（PM 职责）
 
-PM 按 `targetAgent` 路由编译提示词段（详见 `resources/prompt-augmentation-guide.md`）。核心约束：standard→硬约束，pattern→软建议，anti-pattern→禁止项，sourceVerified=false→降级，>50%上限→三级压缩。
+PM 按 `targetAgent` 路由编译提示词段（详见 `resources/prompt-templates.md` 和 `resources/prompt-compression.md`）。核心约束：standard→硬约束，pattern→软建议，anti-pattern→禁止项，sourceVerified=false→降级，>50%上限→三级压缩。
 
 ## Lite 模式调研
 

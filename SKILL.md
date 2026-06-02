@@ -26,6 +26,8 @@ metadata:
     - resources/platform-adapters.md
     - resources/research-agent-schema.md
     - resources/prompt-augmentation-guide.md
+    - resources/prompt-templates.md
+    - resources/prompt-compression.md
     - resources/research-taxonomy.md
     - resources/research-search-strategy.md
     - docs/methodology.md
@@ -169,7 +171,9 @@ Leader 全自动则免同步，PM 自判自推进。
 - `resources/dispatch-lifecycle.md` — 流程管理：版本、文档、Spec、流程闭环、复盘
 - `resources/platform-adapters.md` — 各平台执行方式（Claude Code/Copilot/Cursor/手动等）
 - `resources/research-agent-schema.md` — Research Agent 角色定义、两种状态、输出 Schema、搜索策略
-- `resources/prompt-augmentation-guide.md` — PM 提示词编译指南 + 各 Agent 提示词模板
+- `resources/prompt-augmentation-guide.md` — 提示词工程索引（编译管道 + 路由规则）
+- `resources/prompt-templates.md` — 6 个 Agent 提示词模板
+- `resources/prompt-compression.md` — 注入量控制 + 三级压缩 + 故障应对
 - `resources/research-taxonomy.md` — 知识领域分类体系 + 需求→搜集方向映射表
 - `docs/methodology.md` — 完整方法论（v0→v3 演进 + unblind 实战案例）
 - `resources/research-search-strategy.md` — 搜索策略指南（关键词构造、来源判定、Fetch 要求）

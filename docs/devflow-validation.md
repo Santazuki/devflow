@@ -11,7 +11,7 @@
 | dispatch 模块 | 28 | 索引 + 4 模块（core/interaction/research/lifecycle）跨文件覆盖 |
 | platform-adapters.md | 6 | 平台覆盖（含 Research Agent） |
 | research-agent-schema.md | 7 | 角色定义、两种状态、Schema、搜索策略、派发规则 |
-| prompt-augmentation-guide.md | 6 | 编译管道、各 Agent 模板、注入量控制 |
+| prompt 模块 | 12 | prompt-augmentation-guide(索引) + templates + compression 跨文件覆盖 |
 | 工作流链路 | 9 | Step -1→0→0.5→1→...→7 无断点 |
 | Iron Rules 映射 | 6 | 每条规则对应 Edge Case |
 | 资源互引用 | 10+ | 交叉引用有效 |

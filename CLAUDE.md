@@ -31,7 +31,9 @@ node tests/devflow-check.js
 | `resources/dispatch-lifecycle.md` | 流程管理：版本、文档、Spec、流程闭环、复盘 |
 | `resources/platform-adapters.md` | 各平台 Agent 调用语法映射 |
 | `resources/research-agent-schema.md` | Research Agent 定义：3 模式 + 2 状态 + Schema |
-| `resources/prompt-augmentation-guide.md` | 提示词编译：6 Agent 模板 + 注入量控制 + 三级压缩 + 故障应对 |
+| `resources/prompt-augmentation-guide.md` | 提示词工程索引（编译管道 + 路由规则） |
+| `resources/prompt-templates.md` | Agent 提示词模板 |
+| `resources/prompt-compression.md` | 注入量控制 + 三级压缩 + 故障应对 |
 | `resources/research-taxonomy.md` | 知识分类体系 + 需求→搜集方向映射表 |
 | `resources/research-search-strategy.md` | 搜索操作规范：关键词构造、来源判定、Fetch 要求 |
 | `resources/workflow-config-template.md` | 用户项目集成模板 |
