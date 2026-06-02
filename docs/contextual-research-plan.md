@@ -551,16 +551,16 @@ PM 在 Step 0.5 使用此体系确定 Research Agent 的搜集方向。
 |------|------|
 | `SKILL.md` | L2 新增 Step 0.5 概述（~100 tokens）；Iron Rules 新增第 5 条；Edge Cases 补充；新增 Research Agent 角色定义；bundled_resources 新增 |
 | `resources/platform-adapters.md` | 新增 Research Agent 行（各平台语法映射） |
-| `resources/research-agent-schema.md` | **新建**：Research Agent 完整定义——角色、工具、Schema、输出规范、搜索策略指南 |
-| `resources/prompt-augmentation-guide.md` | **新建**：PM 如何将调研发现编译为下游 Agent 提示词——每个 Agent 的提示词模板 + 编译规则 + 示例 |
-| `resources/dispatch-rules.md` | 新增 §9 "上下文调研规则"（含搜集方向判定算法） |
+| `resources/research/schema.md` | **新建**：Research Agent 完整定义——角色、工具、Schema、输出规范、搜索策略指南 |
+| `resources/prompt/guide.md` | **新建**：PM 如何将调研发现编译为下游 Agent 提示词——每个 Agent 的提示词模板 + 编译规则 + 示例 |
+| `resources/dispatch/rules.md` | 新增 §9 "上下文调研规则"（含搜集方向判定算法） |
 | `resources/workflow-config-template.md` | 同步新增 Step 0.5 段 |
 
 ### Phase 2: 映射表扩充 + 速查卡（v1.2）
 
 | 文件 | 改动 |
 |------|------|
-| `resources/research-taxonomy.md` | **新建**：§5.2 完整映射表 → 从 8 行扩展到 30+ 行；每个组合附带推荐搜索关键词 |
+| `resources/research/taxonomy.md` | **新建**：§5.2 完整映射表 → 从 8 行扩展到 30+ 行；每个组合附带推荐搜索关键词 |
 | `resources/domain-briefs/` | **新建目录**：高频领域（支付、Auth、CMS、i18n 等）的 1 页速查卡——预搜集好的常见模式/反模式/标准，Research Agent 搜索前先读此卡，减少搜索轮次 |
 
 ### Phase 3: 反馈闭环（v1.3）
@@ -568,7 +568,7 @@ PM 在 Step 0.5 使用此体系确定 Research Agent 的搜集方向。
 | 文件 | 改动 |
 |------|------|
 | `SKILL.md` | Step 7 复盘新增"Knowledge Brief 准确性评估"小节 |
-| `resources/research-taxonomy.md` | PM 可将复盘反馈写入映射表（修正过时引用、补充新发现） |
+| `resources/research/taxonomy.md` | PM 可将复盘反馈写入映射表（修正过时引用、补充新发现） |
 | 机制 | 用过的 Knowledge Brief → Step 7 淬炼 → 映射表和速查卡越来越准（自进化） |
 
 ### 校验更新

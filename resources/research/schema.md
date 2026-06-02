@@ -263,11 +263,11 @@ PM 或 Agent 按以下优先级自动判定，不增加额外决策负担：
 
 ## 5. 搜索策略
 
-搜索优先级、关键词构造、来源可靠性判定、Fetch 要求 → 见 `resources/research-search-strategy.md`。
+搜索优先级、关键词构造、来源可靠性判定、Fetch 要求 → 见 `resources/research/search-strategy.md`。
 
 ## 6. 派发规则
 
-派发参数（各状态+模式下的搜索轮次/WebFetch/findings/token 上限）→ 见 `resources/dispatch-research.md`。
+派发参数（各状态+模式下的搜索轮次/WebFetch/findings/token 上限）→ 见 `resources/dispatch/research.md`。
 
 ## 7. 平台适配
 

@@ -17,19 +17,19 @@ metadata:
   repository: https://github.com/Santazuki/devflow
   requirements: none
   bundled_resources:
-    - resources/dispatch-rules.md
-    - resources/dispatch-core.md
-    - resources/dispatch-interaction.md
-    - resources/dispatch-research.md
-    - resources/dispatch-lifecycle.md
+    - resources/dispatch/rules.md
+    - resources/dispatch/core.md
+    - resources/dispatch/interaction.md
+    - resources/dispatch/research.md
+    - resources/dispatch/lifecycle.md
     - resources/workflow-config-template.md
     - resources/platform-adapters.md
-    - resources/research-agent-schema.md
-    - resources/prompt-augmentation-guide.md
-    - resources/prompt-templates.md
-    - resources/prompt-compression.md
-    - resources/research-taxonomy.md
-    - resources/research-search-strategy.md
+    - resources/research/schema.md
+    - resources/prompt/guide.md
+    - resources/prompt/templates.md
+    - resources/prompt/compression.md
+    - resources/research/taxonomy.md
+    - resources/research/search-strategy.md
     - docs/methodology.md
 compatibility: universal
 ---
@@ -84,7 +84,7 @@ compatibility: universal
 | 模式 | 适用 | 步骤 |
 |------|------|------|
 | **Full** | >5 文件、架构变更、安全敏感 | Step 1-7 全流程 |
-| **Lite** | 2-5 文件、低风险、无架构变更 | 合并路线（见 `resources/dispatch-rules.md`） |
+| **Lite** | 2-5 文件、低风险、无架构变更 | 合并路线（见 `resources/dispatch/rules.md`） |
 
 判定依据：改动文件数、是否涉及安全模块、是否有 API/接口变更、Leader 明确偏好。不确定时默认 Full。不跳过。
 
@@ -92,7 +92,7 @@ compatibility: universal
 
 Full 模式下，PM 在进入设计前执行上下文调研——了解领域知识，确保设计不凭空白猜。
 
-**两种调研模式**（详见 `resources/research-agent-schema.md`）：
+**两种调研模式**（详见 `resources/research/schema.md`）：
 
 | 状态 | 驱动 | 何时 |
 |------|------|------|
@@ -100,11 +100,11 @@ Full 模式下，PM 在进入设计前执行上下文调研——了解领域知
 | **触发调研** | 任何 Agent 自下而上 | Step 1-5 中遇知识缺口时 |
 
 **规划调研流程**：
-1. PM 对照分类体系（`resources/research-taxonomy.md`）确定搜集方向
+1. PM 对照分类体系（`resources/research/taxonomy.md`）确定搜集方向
 2. 向 Leader 展示搜集计划，确认后并行派 Research Agent（≤3 个，只读）
 3. Research Agent 使用 WebSearch + WebFetch 搜集行业标准/设计模式/反模式
 4. PM 聚合 JSON 输出，按 targetAgent 路由编译为下游提示词段
-5. 编译结果注入 Step 1-5 各 Agent 的提示词（详见 `resources/prompt-augmentation-guide.md`）
+5. 编译结果注入 Step 1-5 各 Agent 的提示词（详见 `resources/prompt/guide.md`）
 
 **触发调研**：任何 Agent 在执行中遇到不熟悉的模式/可疑代码/技术两难时，可自行 WebSearch（≤2 轮，≤500 tokens），结果直接消费并通知 PM 归档。
 
@@ -140,11 +140,11 @@ CRITICAL → 阻断 Part 2 → 实现者修复 → 同一审查者复审查 → 
 
 ### Step 6: 文档撰写 + Spec 同步
 
-按项目类型选择同步策略。所有类型必做：版本号更新（semver）+ 测试报告 + 项目元数据同步 + **README 同步**（版本号/Agent 数/Iron Rules 数等关键数据）+ **Spec 同步**（设计文档归档至 `docs/design/archive/`，CHANGELOG 写入变更 delta）。npm 包执行发布流程。详情见 `resources/dispatch-rules.md`。
+按项目类型选择同步策略。所有类型必做：版本号更新（semver）+ 测试报告 + 项目元数据同步 + **README 同步**（版本号/Agent 数/Iron Rules 数等关键数据）+ **Spec 同步**（设计文档归档至 `docs/design/archive/`，CHANGELOG 写入变更 delta）。npm 包执行发布流程。详情见 `resources/dispatch/rules.md`。
 
 ### Step 7: 复盘
 
-CLEAN 后启动复盘。对事不对人，关注系统改进而非追责。输出时间线 + 根因 + Action Items。详情见 `resources/dispatch-rules.md`。
+CLEAN 后启动复盘。对事不对人，关注系统改进而非追责。输出时间线 + 根因 + Action Items。详情见 `resources/dispatch/rules.md`。
 
 ## 记忆口诀
 
@@ -164,18 +164,18 @@ Leader 全自动则免同步，PM 自判自推进。
 ## Resources
 
 - `resources/workflow-config-template.md` — 项目配置模板。首次使用时集成
-- `resources/dispatch-rules.md` — 调度规则索引（按需加载模块）
-- `resources/dispatch-core.md` — 核心调度：模式、派发、测试、DoD、回退、口诀
-- `resources/dispatch-interaction.md` — PM-Leader 交互纪律
-- `resources/dispatch-research.md` — 上下文调研规则
-- `resources/dispatch-lifecycle.md` — 流程管理：版本、文档、Spec、流程闭环、复盘
+- `resources/dispatch/rules.md` — 调度规则索引（按需加载模块）
+- `resources/dispatch/core.md` — 核心调度：模式、派发、测试、DoD、回退、口诀
+- `resources/dispatch/interaction.md` — PM-Leader 交互纪律
+- `resources/dispatch/research.md` — 上下文调研规则
+- `resources/dispatch/lifecycle.md` — 流程管理：版本、文档、Spec、流程闭环、复盘
 - `resources/platform-adapters.md` — 各平台执行方式（Claude Code/Copilot/Cursor/手动等）
-- `resources/research-agent-schema.md` — Research Agent 角色定义、两种状态、输出 Schema、搜索策略
-- `resources/prompt-augmentation-guide.md` — 提示词工程索引（编译管道 + 路由规则）
-- `resources/prompt-templates.md` — 6 个 Agent 提示词模板
-- `resources/prompt-compression.md` — 注入量控制 + 三级压缩 + 故障应对
-- `resources/research-taxonomy.md` — 知识领域分类体系 + 需求→搜集方向映射表
+- `resources/research/schema.md` — Research Agent 角色定义、两种状态、输出 Schema、搜索策略
+- `resources/prompt/guide.md` — 提示词工程索引（编译管道 + 路由规则）
+- `resources/prompt/templates.md` — 6 个 Agent 提示词模板
+- `resources/prompt/compression.md` — 注入量控制 + 三级压缩 + 故障应对
+- `resources/research/taxonomy.md` — 知识领域分类体系 + 需求→搜集方向映射表
 - `docs/methodology.md` — 完整方法论（v0→v3 演进 + unblind 实战案例）
-- `resources/research-search-strategy.md` — 搜索策略指南（关键词构造、来源判定、Fetch 要求）
+- `resources/research/search-strategy.md` — 搜索策略指南（关键词构造、来源判定、Fetch 要求）
 - `README.md` — 安装指南、核心规则速查
 - `docs/devflow-validation.md` — 完整性检验文档
