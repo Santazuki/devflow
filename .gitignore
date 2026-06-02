@@ -6,7 +6,8 @@
 tests/
 
 # Claude Code 开发记录（本地，不提交）
-by_claude_code_dev_md/
+by_claude_code_dev_md/*
+!by_claude_code_dev_md/progress.md
 
 # 编辑器
 .vscode/
