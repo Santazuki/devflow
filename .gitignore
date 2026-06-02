@@ -1,6 +1,6 @@
 # DevFlow .gitignore
 # 本文件是 devflow skill 自身的 gitignore，不是项目模板。
-# 项目 .gitignore 规则见 resources/dispatch-rules.md
+# 项目 .gitignore 规则见 resources/dispatch/core.md
 
 # 测试（本地验证，不提交）
 tests/
