@@ -7,7 +7,7 @@
 | 类别 | 项数 | 说明 |
 |------|:---:|------|
 | SKILL.md 结构 | 17 | 章节完整性、frontmatter、L1/L2/L3 标记 |
-| 文件存在性 | 12 | 所有资源文件就位（含新增 research-agent-schema、prompt-augmentation-guide） |
+| 文件存在性 | 13 | 所有资源文件就位（含 research-search-strategy） |
 | dispatch-rules.md | 17 | 子章节覆盖（含 PM 交互纪律、上下文调研规则、Spec 同步） |
 | platform-adapters.md | 6 | 平台覆盖（含 Research Agent） |
 | research-agent-schema.md | 7 | 角色定义、两种状态、Schema、搜索策略、派发规则 |

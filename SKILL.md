@@ -132,7 +132,7 @@ CRITICAL → 阻断 Part 2 → 实现者修复 → 同一审查者复审查 → 
 
 ### Step 6: 文档撰写 + Spec 同步
 
-按项目类型选择同步策略。所有类型必做：版本号更新（semver）+ 测试报告 + 项目元数据同步 + **Spec 同步**（设计文档归档至 `docs/design/archive/`，CHANGELOG 写入变更 delta）。npm 包执行发布流程。详情见 `resources/dispatch-rules.md`。
+按项目类型选择同步策略。所有类型必做：版本号更新（semver）+ 测试报告 + 项目元数据同步 + **README 同步**（版本号/Agent 数/Iron Rules 数等关键数据）+ **Spec 同步**（设计文档归档至 `docs/design/archive/`，CHANGELOG 写入变更 delta）。npm 包执行发布流程。详情见 `resources/dispatch-rules.md`。
 
 ### Step 7: 复盘
 
