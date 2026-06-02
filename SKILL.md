@@ -60,6 +60,8 @@ compatibility: universal
 - 调研来源未验证（sourceVerified=false）→ 降级为"参考"，不作为硬约束
 - 调研发现过多（>15 条）→ PM 按严重度/影响面截断，优先保留 standard 和 CRITICAL 相关
 - 调研搜索无结果 → 标注"该领域无相关标准"，不阻塞流程
+- 偏离判定 MAJOR → 暂停推进，Leader 决策后方可继续
+- 偏离判定 MINOR → 继续推进但通知 Leader 注意
 
 ## Step -1: 熟悉项目
 

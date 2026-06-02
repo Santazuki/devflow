@@ -57,4 +57,6 @@ Part 2: SL → QA → RE (≤3 轮)
 
 **版本号管理**：每次 CLEAN 后按 semver 更新。Bug→PATCH · Feature→MINOR · Breaking→MAJOR。npm 包同步 `package.json`，Skill 同步 `SKILL.md`。
 
-**分支策略**：Trunk-Based Development。`main` 始终可发布。Feature 分支 1-3 天，PR 合并通过 CI。
+**分支策略**：Trunk-Based Development。每次大任务切 `feat/<name>` 或 `fix/<name>`，完成后合并回主干。每个 checkpoint 完成后自动 commit，最终 Step 6 提交。
+
+**路线偏离判定**：PM 在每个 checkpoint 完成后对比原计划（范围/功能/复杂度/方向四维度）。ON_TRACK 自动推进，MINOR 通知 Leader，MAJOR 必须 Leader 决策。详见 `resources/dispatch-rules.md`。

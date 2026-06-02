@@ -24,7 +24,7 @@ node tests/devflow-check.js
 | 文件 | 用途 |
 |------|------|
 | `SKILL.md` | Skill 入口，6 Iron Rules + Edge Cases + Step -1→7 |
-| `resources/dispatch-rules.md` | 调度规则全集：模式、派发、PM 纪律、调研、测试、DoD、回退、版本、Spec、复盘 |
+| `resources/dispatch-rules.md` | 调度规则全集：模式、派发、PM 纪律、调研、测试、DoD、回退、版本、Spec、流程闭环（分支+偏离判定+决策门）、复盘 |
 | `resources/platform-adapters.md` | 各平台 Agent 调用语法映射 |
 | `resources/research-agent-schema.md` | Research Agent 定义：3 模式 + 2 状态 + Schema |
 | `resources/prompt-augmentation-guide.md` | 提示词编译：6 Agent 模板 + 注入量控制 + 三级压缩 + 故障应对 |
